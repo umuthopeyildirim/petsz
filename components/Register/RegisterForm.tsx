@@ -198,23 +198,6 @@ export const RegisterForm = () => {
         Sign Up
       </Button>
 
-      <Button
-        startContent={<AiFillGithub className="text-3xl" />}
-        className="w-full font-medium"
-        color="danger"
-        variant="ghost"
-        onClick={async () => {
-          setIsLoading(true);
-          await signIn("google", {
-            callbackUrl: "/",
-          });
-          setIsLoading(false);
-        }}
-        isDisabled={isLoading}
-      >
-        Continue with Github
-      </Button>
-
       <p className="text-sm text-gray-600">
         Already have an account ?{" "}
         <Link

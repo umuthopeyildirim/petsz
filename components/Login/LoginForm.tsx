@@ -92,22 +92,6 @@ export const LoginForm = () => {
       >
         Sign In
       </Button>
-      <Button
-        startContent={<AiFillGithub className="text-3xl" />}
-        className="w-full font-medium"
-        color="danger"
-        variant="ghost"
-        onClick={async () => {
-          setIsLoading(true);
-          await signIn("github", {
-            callbackUrl: "/",
-          });
-          setIsLoading(false);
-        }}
-        isDisabled={isLoading}
-      >
-        Continue with Github
-      </Button>
 
       <div className="flex flex-col items-center gap-2">
         <p className="text-sm text-gray-600">
