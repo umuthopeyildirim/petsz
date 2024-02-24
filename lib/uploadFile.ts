@@ -4,7 +4,7 @@ var AWS = require("aws-sdk");
 
 const uploadFile = async (file: any) => {
   const S3_BUCKET = "pawtograph";
-  const REGION = "eu-west-3";
+  const REGION = "us-east-1";
   const randomId = uuid();
   const nameArr: string[] = file.name.split(".");
   const extension = nameArr[nameArr.length - 1];
@@ -28,12 +28,12 @@ const uploadFile = async (file: any) => {
 
   await s3.putObject(params).promise();
 
-  return `https://pawtograph.s3.eu-west-3.amazonaws.com/${fileName}`;
+  return `https://petsz.s3.us-east-1.amazonaws.com/${fileName}`;
 };
 
 export const deleteFile = async (fileName: string) => {
-  const S3_BUCKET = "pawtograph";
-  const REGION = "eu-west-3";
+  const S3_BUCKET = "petsz";
+  const REGION = "us-east-1";
 
   AWS.config.update({
     accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY,

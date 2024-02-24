@@ -72,9 +72,7 @@ export default function UpdateForm() {
     try {
       if (imageFileUrl) {
         // Delete image from AWS S3
-        if (
-          user.image!.includes("https://pawtograph.s3.eu-west-3.amazonaws.com/")
-        ) {
+        if (user.image!.includes("https://petsz.s3.us-east-1.amazonaws.com/")) {
           const splitUrl = user.image!.split("/");
           await deleteFile(splitUrl[splitUrl.length - 1]);
         }

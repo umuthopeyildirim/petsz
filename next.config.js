@@ -3,7 +3,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "pawtograph.s3.eu-west-3.amazonaws.com",
+        hostname: "petsz.s3.us-east-1.amazonaws.com",
       },
       {
         hostname: "lh3.googleusercontent.com",
