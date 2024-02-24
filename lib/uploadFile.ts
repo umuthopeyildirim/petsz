@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 var AWS = require("aws-sdk");
 
 const uploadFile = async (file: any) => {
-  const S3_BUCKET = "pawtograph";
+  const S3_BUCKET = "petsz";
   const REGION = "us-east-1";
   const randomId = uuid();
   const nameArr: string[] = file.name.split(".");
