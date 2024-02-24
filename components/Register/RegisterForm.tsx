@@ -4,7 +4,7 @@ import { Button, Input } from "@nextui-org/react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 
-import { AiFillGoogleCircle } from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 
 import { FieldValues, useForm } from "react-hook-form";
@@ -199,7 +199,7 @@ export const RegisterForm = () => {
       </Button>
 
       <Button
-        startContent={<AiFillGoogleCircle className="text-3xl" />}
+        startContent={<AiFillGithub className="text-3xl" />}
         className="w-full font-medium"
         color="danger"
         variant="ghost"
@@ -212,39 +212,8 @@ export const RegisterForm = () => {
         }}
         isDisabled={isLoading}
       >
-        Continue with Google
+        Continue with Github
       </Button>
-      <Button
-        startContent={<BsFacebook className="text-2xl" />}
-        className="w-full font-medium"
-        color="primary"
-        variant="ghost"
-        onClick={async () => {
-          setIsLoading(true);
-          await signIn("facebook", {
-            callbackUrl: "/",
-          });
-          setIsLoading(false);
-        }}
-        isDisabled={isLoading}
-      >
-        Continue with Facebook
-      </Button>
-      {/* <Button
-        startContent={<i className="fa-brands fa-x-twitter text-2xl"></i>}
-        isDisabled={isLoading}
-        variant="ghost"
-        className="w-full font-medium hover:text-white text-black border-black hover:!bg-black"
-        onClick={async () => {
-          setIsLoading(true);
-          await signIn("twitter", {
-            callbackUrl: "/",
-          });
-          setIsLoading(false);
-        }}
-      >
-        Continue with X
-      </Button> */}
 
       <p className="text-sm text-gray-600">
         Already have an account ?{" "}

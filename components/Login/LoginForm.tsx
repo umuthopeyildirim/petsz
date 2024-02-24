@@ -4,7 +4,7 @@ import { Button, Input } from "@nextui-org/react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 
-import { AiFillGoogleCircle, AiFillTwitterCircle } from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 
 import { FieldValues, useForm } from "react-hook-form";
@@ -93,67 +93,20 @@ export const LoginForm = () => {
         Sign In
       </Button>
       <Button
-        startContent={<AiFillGoogleCircle className="text-3xl" />}
+        startContent={<AiFillGithub className="text-3xl" />}
         className="w-full font-medium"
         color="danger"
         variant="ghost"
         onClick={async () => {
           setIsLoading(true);
-          await signIn("google", {
+          await signIn("github", {
             callbackUrl: "/",
           });
           setIsLoading(false);
         }}
         isDisabled={isLoading}
       >
-        Continue with Google
-      </Button>
-      <Button
-        startContent={<BsFacebook className="text-2xl" />}
-        className="w-full font-medium"
-        color="primary"
-        variant="ghost"
-        onClick={async () => {
-          setIsLoading(true);
-          await signIn("facebook", {
-            callbackUrl: "/",
-          });
-          setIsLoading(false);
-        }}
-        isDisabled={isLoading}
-      >
-        Continue with Facebook
-      </Button>
-      {/* <Button
-        startContent={<i className="fa-brands fa-x-twitter text-2xl"></i>}
-        isDisabled={isLoading}
-        variant="ghost"
-        className="w-full font-medium hover:text-white text-black border-black hover:!bg-black"
-        onClick={async () => {
-          setIsLoading(true);
-          await signIn("twitter", {
-            callbackUrl: "/",
-          });
-          setIsLoading(false);
-        }}
-      >
-        Continue with X
-      </Button> */}
-
-      <Button
-        startContent={<FaCat className="text-2xl" />}
-        isDisabled={isLoading}
-        variant="ghost"
-        className="w-full font-medium"
-        color="secondary"
-        onClick={async () => {
-          await submitForm({
-            email: "visitor@gmail.com",
-            password: "visitor123",
-          });
-        }}
-      >
-        Login as visitor
+        Continue with Github
       </Button>
 
       <div className="flex flex-col items-center gap-2">
