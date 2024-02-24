@@ -76,6 +76,67 @@ export default function CreatePost() {
     }
     data.authorId = user.id;
 
+    let aiResponse = await fetch(
+      "https://api.fireworks.ai/inference/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Bearer TIHbjubvejR4Ay3y9gnIUwZGvYdj4A0JmQgyYAZjsBpgG4UT`,
+        },
+        body: JSON.stringify({
+          model: "accounts/fireworks/models/firellava-13b",
+          max_tokens: 512,
+          top_p: 1,
+          top_k: 40,
+          presence_penalty: 0,
+          frequency_penalty: 0,
+          temperature: 0.6,
+          messages: [
+            {
+              content: [
+                {
+                  type: "text",
+                  text: 'Is this a pet or not? Only anwser in JSON. Example response: {"animal":true}',
+                },
+                {
+                  type: "image_url",
+                  image_url: {
+                    url: data.photo,
+                  },
+                },
+              ],
+              role: "user",
+            },
+          ],
+        }),
+      }
+    );
+
+    // If the incoming respone is {"animal":true} then the image is a pet
+    // If the incoming respone is {"animal":false} then the image is not a pet and dont let them post it
+    let aiResponseData = await aiResponse.json();
+    let contentResponse;
+    try {
+      // Replace single quotes with double quotes and remove leading/trailing characters if needed
+      const correctedContent =
+        aiResponseData.choices[0].message.content.replace(/'/g, '"');
+      contentResponse = JSON.parse(correctedContent);
+    } catch (error) {
+      console.error("Failed to parse AI response:", error);
+      toast.error("There was a problem processing the image.");
+      setIsLoading(false);
+      return; // Exit early, do not proceed with the post submission
+    }
+
+    contentResponse = JSON.parse(aiResponseData.choices[0].message.content);
+    if (contentResponse.animal === false) {
+      toast.error("This image is not a pet, please upload a pet image.");
+      setIsLoading(false);
+      return; // Exit early, do not proceed with the post submission
+    }
+
     try {
       const res = await fetch("/api/posts", {
         method: "post",

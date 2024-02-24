@@ -66,7 +66,7 @@ export default function Home() {
           title="My Chatbot"
           placeholder="Chat with your AI assistant"
           inputSize="large"
-          isInitiallyOpen={true}
+          isInitiallyOpen={false}
         />
       </main>
     </>
