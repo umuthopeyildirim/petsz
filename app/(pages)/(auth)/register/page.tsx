@@ -20,7 +20,7 @@ export default function Page() {
     <div className="w-full h-screen flex justify-between">
       <div className="flex flex-col flex-1 items-center justify-center relative px-5 md:px-1">
         <Image
-          src={"/images/logo-full.png"}
+          src={"/images/logo-black.png"}
           alt="logo"
           width={200}
           height={200}
