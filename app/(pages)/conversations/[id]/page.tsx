@@ -7,6 +7,7 @@ import { Spinner } from "@nextui-org/react";
 import { User } from "@prisma/client";
 import { useParams } from "next/navigation";
 import { useSelector } from "react-redux";
+import { ReactChatbot } from "../../../../chatbot/index";
 
 export default function Page() {
   const { id } = useParams();
@@ -31,8 +32,15 @@ export default function Page() {
       id="container"
       className="w-full flex flex-col flex-1 lg:grid lg:grid-cols-[1fr_3fr] max-w-[1450px] rounded-xl gap-4 lg:gap-8 p-2 pb-1 lg:pb-8 lg:p-8 relative"
     >
-      <ConversationList id={id as string} />
-      <Chat id={id as string} />
+      <ReactChatbot
+        customerId="73873878"
+        corpusIds={["5"]}
+        apiKey="zwt_BGc51vuov9g_Lc7tVvHbPR6UT-Bi9PqL55XbUg"
+        title="My Chatbot"
+        placeholder="Chat with your AI assistant"
+        inputSize="large"
+        isInitiallyOpen={true}
+      />
     </div>
   );
 }
