@@ -63,8 +63,8 @@ export default function Home() {
           customerId="73873878"
           corpusIds={["5"]}
           apiKey="zwt_BGc51vuov9g_Lc7tVvHbPR6UT-Bi9PqL55XbUg"
-          title="My Chatbot"
-          placeholder="Chat with your AI assistant"
+          title="Petsz Chatbot"
+          placeholder="Get advice for your pet from our chatbot"
           inputSize="large"
           isInitiallyOpen={false}
         />
