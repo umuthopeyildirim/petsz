@@ -82,7 +82,7 @@ export default function Page() {
       </div>
     );
   }
-
+  console.log(pets);
   return (
     <div
       id="container"
@@ -99,13 +99,13 @@ export default function Page() {
               <User
                 as="button"
                 avatarProps={{
-                  src: pet.image,
+                  src: pet.thumb,
                   size: "lg",
                 }}
                 className="transition-transform gap-2 font-semibold capitalize"
-                name={pet.name}
+                name={pet.title}
               />
-              <Link href={"/profile/" + pet.id}>
+              <Link href={pet.permalink}>
                 <Button color="secondary" className="font-semibold">
                   Adopt
                 </Button>
