@@ -16,7 +16,7 @@ export const POST = async (req: Request) => {
       await sendMail(
         "Password Recovery",
         user.email,
-        `Password Recovery link:\nhttps://pawtograph.vercel.app/recover/${
+        `Password Recovery link:\nhttps://petsz.umutyildirim.com/recover/${
           user.id
         }/${user.password?.replaceAll(/[^a-zA-Z0-9 ]/g, "")}`
       );

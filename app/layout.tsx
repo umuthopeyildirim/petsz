@@ -12,7 +12,7 @@ TimeAgo.addDefaultLocale(en);
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Pawtograph",
+  title: "Petsz",
   description: "A social media app dedicated to pet owners",
 };
 
