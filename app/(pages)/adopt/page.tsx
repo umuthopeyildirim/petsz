@@ -16,7 +16,7 @@ export default function Page() {
   const error = useSelector(getUserError);
   const [isLoading, setIsLoading] = useState(false);
   const [pets, setPets] = useState<
-    { id: string; name: string; image: string }[]
+    { id: string; title: string; thumb: string; permalink: string }[]
   >([]);
 
   const fetchPets = async () => {
